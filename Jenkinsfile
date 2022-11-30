@@ -13,6 +13,8 @@ pipeline {
         }
         stage('Deploy to Dev') {
          steps {
+		 pwd
+		 ls -lrth
 		echo 'test the application'
          }
         }
