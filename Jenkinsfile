@@ -13,8 +13,10 @@ pipeline {
         }
         stage('Deploy to Dev') {
          steps {
-		 pwd
-		 ls -lrth
+		sh '''
+                    echo "Multiline shell steps works too"
+                    ls -lah
+                '''
 		echo 'test the application'
          }
         }
