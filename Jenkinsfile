@@ -17,7 +17,7 @@ pipeline {
          steps {
 		 echo 'deploy the application'
 		sh '''
-		    chmod -R 777 prodnode/
+		    chmod -R 777 /home/ec2-user/devnode
                     cp . /home/ec2-user/devnode
 		    npm restart all
                 '''
@@ -25,6 +25,7 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
+		    
                 echo 'deploy the application'
             }
 			
