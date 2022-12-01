@@ -17,7 +17,7 @@ pipeline {
          steps {
 		 echo 'deploy the application'
 		sh '''
-		    cp * /var/www/devnode
+		    cp * -R /var/www/devnode
 		    npm restart all
                 '''
          }
