@@ -18,8 +18,14 @@ pipeline {
 		 echo 'deploy the application'
 		sh '''
 		    cp * -Rf /var/www/devnode
-		    cd /var/www/devnode
-		    pm2 start index.js
+		    
+		    pm2 describe index > /dev/null
+		    RUNNING=$?
+		    if [ "${RUNNING}" -ne 0 ]; then
+			pm2 start /var/www/devnode/index.js
+		    else
+			pm2 restart index
+		    fi;
                 '''
          }
         }
