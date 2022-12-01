@@ -18,7 +18,8 @@ pipeline {
 		 echo 'deploy the application'
 		sh '''
 		    cp * -R /var/www/devnode
-		    npm restart all
+		    cd /var/www/devnode
+		    pm2 start index.js
                 '''
          }
         }
