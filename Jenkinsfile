@@ -17,7 +17,7 @@ pipeline {
          steps {
 		 echo 'deploy the application'
 		sh '''
-		    cp * -R /var/www/devnode
+		    cp * -Rf /var/www/devnode
 		    cd /var/www/devnode
 		    pm2 start index.js
                 '''
