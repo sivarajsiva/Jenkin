@@ -4,25 +4,28 @@ pipeline {
         stage('Build') { 
             steps {
                 echo 'build the application'
+		 sh 'npm install'
+         	 sh '<<Build Command>>'
             }
         }
         stage('Test') { 
             steps {
                echo 'test the application'
+		sh 'node test'
             }
         }
         stage('Deploy to Dev') {
          steps {
+		 echo 'deploy the application'
 		sh '''
-                    echo "Multiline shell steps works too"
-                    ls -lah
+                    cp . /home/ec2-user/devnode
+		    npm restart all
                 '''
-		echo 'test the application'
          }
         }
         stage('Deploy') { 
             steps {
-                echo 'deploy the application'
+                
             }
 			
         }
