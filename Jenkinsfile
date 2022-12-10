@@ -23,13 +23,7 @@ pipeline {
 		sh '''
 		    cp * -Rf /var/www/devnode
 		    
-		    pm2 describe index > /dev/null
-		    RUNNING=$?
-		    if [ "${RUNNING}" -ne 0 ]; then
-			pm2 start /var/www/devnode/index.js
-		    else
-			pm2 restart index
-		    fi;
+		   pm2 start /var/www/devnode/index.js
 		 '''
 		
          }
