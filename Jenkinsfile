@@ -6,6 +6,8 @@ pipeline {
                 echo 'build the application'
 		 sh '''
 		 	ls -ltrh
+			npm install
+			ls -ltrh
 		 '''
             }
         }
