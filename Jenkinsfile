@@ -4,6 +4,9 @@ pipeline {
         stage('Build') { 
             steps {
                 echo 'build the application'
+		 sh '''
+		 	ls -ltrh
+		 '''
             }
         }
         stage('Test') { 
