@@ -17,13 +17,25 @@ pipeline {
             }
         }
         stage('Deploy to Dev') {
+		
          steps {
+		 
 		 echo 'deploy the application to dev env'
+		 cp * -Rf /var/www/devnode
+		  pm2 describe index > /dev/null
+		    RUNNING=$?
+		    if [ "${RUNNING}" -ne 0 ]; then
+			pm2 start /var/www/devnode/index.js
+		    else
+			pm2 restart index
+		    fi;   
+		   
 		
          }
         }
         stage('Deploy to QA') { 
             steps {
+		    
 		    
                 echo 'deploy the application qa env'
             }		
