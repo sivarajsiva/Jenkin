@@ -17,13 +17,13 @@ pipeline {
 		
          }
         }
-        stage('Deploy') { 
+        stage('Deploy to QA') { 
             steps {
 		    
                 echo 'deploy the application qa env'
             }		
         }
-	stage('Deploy') { 
+	stage('Deploy to Prod') { 
             steps {
 		    
                 echo 'deploy the application prod env'
