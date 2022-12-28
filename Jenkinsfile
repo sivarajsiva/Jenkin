@@ -1,5 +1,5 @@
 pipeline {
-    agent any 
+	agent { label 'jenkin-ec2-agent' }
     stages {
         stage('Build') { 
             steps {
