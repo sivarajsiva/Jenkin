@@ -26,7 +26,7 @@ pipeline{
 			steps{
 				echo "Application Deployment Start"
 				sh '''
-				cp * /var/www/devnode
+				cp * -Rf /var/www/devnode
 				pm2 restart index
 				'''
 				echo "Application Deployment End"
