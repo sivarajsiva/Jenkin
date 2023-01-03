@@ -1,45 +1,25 @@
-pipeline {
+pipeline{
 	agent any
-    stages {
-        stage('Build') { 
-            steps {
-                echo 'build the application'
-		 sh '''
-		 	ls -ltrh
-			npm install
-			ls -ltrh
-		 '''
-            }
-        }
-        stage('Test') { 
-            steps {
-               echo 'test the application'
-            }
-        }
-        stage('Deploy to Dev') {
+	stages {
+
+		stage('Build Node Js Project'){
+			echo "Application build Start"
+			
+			echo "Application build End"
+		}
 		
-         steps {
-		 echo 'deploy the application'
-		sh '''
-		    cp * -Rf /var/www/devnode
-		    
-		   pm2 restart index
-		 '''
+		stage('Test the Application'){
+			echo "Application test Start"
+			
+			echo "Application test End"
+		}
 		
-         }
-        }
-        stage('Deploy to QA') { 
-            steps {
-		    
-		    
-                echo 'deploy the application qa env'
-            }		
-        }
-	stage('Deploy to Prod') { 
-            steps {
-		    
-                echo 'deploy the application prod env'
-            }		
-        }
-    }
+		stage('Deploy to Dev env'){
+			echo "Application Deployment Start"
+			
+			echo "Application Deployment End"
+		}
+
+	}
+
 }
