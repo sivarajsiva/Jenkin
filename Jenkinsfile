@@ -17,7 +17,9 @@ pipeline{
 		stage('Test the Application'){
 			steps{
 				echo "Application test Start"
-			
+				sh '''
+					node test
+				'''
 				echo "Application test End"
 			}
 		}
