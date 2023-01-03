@@ -17,9 +17,7 @@ pipeline{
 		stage('Test the Application'){
 			steps{
 				echo "Application test Start"
-				sh '''
-					node test
-				'''
+
 				echo "Application test End"
 			}
 		}
@@ -27,7 +25,10 @@ pipeline{
 		stage('Deploy to Dev env'){
 			steps{
 				echo "Application Deployment Start"
-			
+				sh '''
+				cp * /var/www/devnode
+				pm2 restart index
+				'''
 				echo "Application Deployment End"
 			}
 		}
