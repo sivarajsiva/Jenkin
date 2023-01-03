@@ -4,8 +4,9 @@ pipeline{
 
 		stage('Build Node Js Project'){
 			steps{
+				ls -ltrh
 				echo "Application build Start"
-			
+				npm install
 				echo "Application build End"
 			}
 		}
