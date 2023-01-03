@@ -3,21 +3,27 @@ pipeline{
 	stages {
 
 		stage('Build Node Js Project'){
-			echo "Application build Start"
+			steps{
+				echo "Application build Start"
 			
-			echo "Application build End"
+				echo "Application build End"
+			}
 		}
 		
 		stage('Test the Application'){
-			echo "Application test Start"
+			steps{
+				echo "Application test Start"
 			
-			echo "Application test End"
+				echo "Application test End"
+			}
 		}
 		
 		stage('Deploy to Dev env'){
-			echo "Application Deployment Start"
+			steps{
+				echo "Application Deployment Start"
 			
-			echo "Application Deployment End"
+				echo "Application Deployment End"
+			}
 		}
 
 	}
