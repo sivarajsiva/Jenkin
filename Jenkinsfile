@@ -23,7 +23,7 @@ pipeline {
 		sh '''
 		    cp * -Rf /var/www/devnode
 		    
-		   pm2 start /var/www/devnode/index.js
+		   pm2 restart index
 		 '''
 		
          }
