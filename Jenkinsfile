@@ -27,9 +27,9 @@ pipeline{
 				echo "Application Deployment Start"
 				sh '''
 				cp * -Rf /var/www/devnode
-				pm2 restart index
+				pm2 start /var/www/devnode/index.js
 				'''
-				echo "Application Deployment End"
+				echo " pm2 restart index Application Deployment End"
 			}
 		}
 
