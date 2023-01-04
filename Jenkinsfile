@@ -27,10 +27,10 @@ pipeline{
 				echo "Application Deployment Start"
 				sh '''
 				cp * -Rf /var/www/devnode
-				pm2 start /var/www/devnode/index.js
-				pm2 save
+				pm2 restart index
+				
 				'''
-				echo " pm2 restart index Application Deployment End"
+				echo "Application Deployment End"
 			}
 		}
 
