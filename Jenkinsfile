@@ -28,6 +28,11 @@ pipeline{
 		}
 		
 		stage('Deploy to Dev env'){
+			when {
+				expression {
+					return env.DevDeployment == 'Yes';
+				}
+			}
 			steps{
 				echo "Application Deployment Start"
 				sh '''
@@ -38,7 +43,18 @@ pipeline{
 				echo "Application Deployment End"
 			}
 		}
-
+		stage('Deploy to Prod env'){
+			when {
+				expression {
+					return env.ProdDeployment == 'Yes';
+				}
+			}
+			steps{
+				echo "Application prod Deployment Start"
+				
+				echo "Application prod Deployment End"
+			}
+		}
 	}
 
 }
