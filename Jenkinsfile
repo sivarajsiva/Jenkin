@@ -4,7 +4,7 @@ pipeline{
 
 		stage('Build Node Js Project'){
 			steps{
-				echo "Application build Start"
+				echo "Application build Starting"
 				sh '''
 					ls -ltrh
 					npm install
